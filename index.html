@@ -1,0 +1,100 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Merge PDFs</title>
+    <link rel="stylesheet" href="./output.css" />
+    <link rel="stylesheet" href="./styles.css" />
+    <script defer src="./dist/pdf-lib.min.js"></script>
+    <script defer src="./index.js"></script>
+  </head>
+  <body>
+    <div
+      id="main-container"
+      class="min-h-screen flex flex-col items-center gap-4 p-4"
+    >
+      <header>
+        <div class="flex flex-col items-center justify-center gap-2">
+          <h1 class="text-2xl font-bold text-center text-gray-800">
+            Merge Your PDFs
+          </h1>
+          <p class="text-sm text-gray-500 text-start">
+            Without getting your data out of your browser or the need to install
+            any software.
+          </p>
+        </div>
+      </header>
+      <main id="main" class="w-full max-w-2xl">
+        <div class="flex items-center justify-between w-full">
+          <label
+            for="dropzone-file"
+            class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-white hover:bg-gray-100"
+          >
+            <div class="flex flex-col items-center justify-center pt-5 pb-6">
+              <svg
+                class="w-8 h-8 mb-4 text-gray-500"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 20 16"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"
+                />
+              </svg>
+              <p class="mb-2 text-sm text-gray-700">
+                <span class="font-semibold">Click to upload</span> or drag and
+                drop
+              </p>
+              <p class="text-xs text-gray-500">
+                Only .pdf files are allowed <span class="text-red-500">*</span>
+              </p>
+            </div>
+            <input
+              id="dropzone-file"
+              type="file"
+              class="hidden"
+              multiple
+              accept=".pdf"
+            />
+          </label>
+        </div>
+        <div id="files" class="mt-4">
+          <div class="flex flex-col justify-center gap-2">
+            <h2 class="text-xl font-bold text-gray-800">Uploaded Files</h2>
+            <p class="text-sm text-gray-500">
+              <span class="font-semibold">Note:</span> The pages will be ordered
+              sequentially. The first page in the list comes from the first
+              file, and the last page in the list comes from the last file.
+            </p>
+          </div>
+          <div id="files-list" class="mt-4">
+            <ul class="list-none border border-gray-300 rounded p-4">
+              <li>No files uploaded yet. Please upload 2 or more PDFs.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="flex flex-col items-center justify-center gap-4 mt-4">
+          <button
+            id="merge"
+            class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded w-full transition-colors"
+            disabled
+          >
+            Merge PDFs
+          </button>
+          <a
+            id="download"
+            class="text-red-500 border border-red-500 px-4 py-2 rounded text-center w-full hidden transition-colors"
+            >Input at least 2 PDFs to merge.</a
+          >
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
